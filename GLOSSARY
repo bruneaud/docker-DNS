@@ -1,0 +1,2 @@
+Client test: Pulling down the project on a separate machine and testing functionality
+userConfig: The configurations, address definitions, etc passed in by the user starting the dockerDNS container.
