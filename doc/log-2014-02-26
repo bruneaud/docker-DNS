@@ -8,7 +8,6 @@ Installed packages via apt-get:
      bind9utils
      build-essential
      mlocate
-
      unzip
      vim 
      wget
@@ -27,7 +26,7 @@ Client test(see glossary) # 1successful
 Whoops, realized I was mistaken in believing that there was a ‘docker run’ parameter that allowed a single file to be passed.  There is however a ‘-v’ parameter that allows a directory to be mounted as a volume to the container
 Syntax: docker run -v <host path>:<container path>
 I believe this will be more useful than what I was planning because the user can pass in an entire directory of configs instead of needing a parameter per file:
-     Idea: Docker reads the in main config file that can have an ‘include’ directive to allow loading separate files, allowing users to group configurations logically
+     Idea: Docker reads in the main config file that can have an ‘include’ directive to allow loading separate files, allowing users to group configurations logically
 
 To handle this behavior, I created a directory in the container to mount these configs to: /opt/dockerDNS/conf
 
@@ -48,7 +47,7 @@ Container self-configuration plan
      -The files will be recursively read and run through sed to replace this IP with the actual value
      - I added this command to bash.bashrc to run whenever the container is run with a ‘/bin/bash’ command
      -realized this was a bad move because in most cases, users will just run the container in daemon mode without starting the shell
-     -Decided to instead call a script at the beginning of the the ‘start’ clause in the /etc/init.d/bind9 to handle all dockerDNS actions
+     -Decided to instead call a script at the beginning of the ‘start’ clause in the /etc/init.d/bind9 to handle all dockerDNS actions
      -Created a /opt/dockerDNS/bin directory to hold all scripts
      -Wrote /opt/dockerDNS/bin/selfConfig.sh (full text of file later)
      -Because shell scripts cannot write variables to their calling environment, instead of using environment variables I will now save the IP address in /opt/dockerDNS/conf/selfConfig with a line like the following:
