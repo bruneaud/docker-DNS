@@ -1,3 +1,5 @@
+#Current version: 1.0
+
 docker-DNS
 ==========
 
