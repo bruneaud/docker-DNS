@@ -1,5 +1,7 @@
 #Current version: 1.0
 
+Prebuilt container download: https://www.dropbox.com/s/s1m3tydspzqk2lj/dockerdnsv1.0
+
 docker-DNS
 ==========
 
