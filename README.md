@@ -1,4 +1,4 @@
-#Current version: 1.0
+#Current version: 2.0
 
 Prebuilt container download: https://www.dropbox.com/s/s1m3tydspzqk2lj/dockerdnsv1.0
 
@@ -21,7 +21,7 @@ An easy to configure Docker DNS Container for subnetworks created with Docker th
 
 ###v2 Requirements: 
 ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Automatic reverse zone generation scripts installed and set to run on a schedule 
-####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Probind Web GUI installed 
+####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) CNAME support
 
 ###v3 Requirements: 
 ####&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Passing in a .zip/.tar/.tar.gz of existing configurations(named.conf, zone files, etc) on creation 
