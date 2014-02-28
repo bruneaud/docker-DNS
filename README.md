@@ -1,6 +1,8 @@
 #Current version: 2.0
 
-Prebuilt container download: https://www.dropbox.com/s/s1m3tydspzqk2lj/dockerdnsv1.0
+Image download: https://www.dropbox.com/s/i8k9h5tda8e0937/dockerdnsv2.0.tar
+Installation: 
+$docker load < dockerdnsv2.0.tar
 
 docker-DNS
 ==========
