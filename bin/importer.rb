@@ -17,6 +17,12 @@ begin
     #Read in userConfig
     file = File.new("/opt/dockerDNS/conf/userConfig", "r")
     while (line = file.gets)
+
+	#USER COMMENT SUPPORT
+	if line.start_with?("#") then
+		next
+	end
+
 	line = line.split(',')
 	size = line.size-1
 	for i in 0..size
@@ -49,6 +55,12 @@ begin
 		end
 		counter2 = counter2 + 1
 	}
+
+	#MAKE SURE THE DOMAIN ENDS WITH A PERIOD BECAUSE OTHERWISE WE DO NOT HAVE A FQDN
+	if !domain.end_with?(".") then
+		domain=domain<<"."
+	end
+
 	if !domains.include? domain then
 		#New domain encountered, created new zone file, add zone declaration to named.conf	
 		domains << domain	
@@ -76,7 +88,6 @@ begin
 		#Existing domain encountered, append new record to existing zone file
 		fileName="#{domain}zone"
 		existingZone = File.new("/tmp/bind/zones/#{fileName}","a+")
-		puts "/tmp/bind/zones/#{fileName}"
 		if recordType == "A" then
                         existingZone << "#{bld}.#{domain}    IN      #{recordType}   #{destination}\n"
                 else
